@@ -1,6 +1,6 @@
 // serach parameters
-var queryURL = "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c5ddeb8a63142d853cedb5adfd31187a"
-
+// var queryURL = "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c5ddeb8a63142d853cedb5adfd31187a"
+var APIKey ='c5ddeb8a63142d853cedb5adfd31187a';
 var cityInfo = ""
 var temp = ""
 var humid = ""
@@ -8,28 +8,47 @@ var wind = ""
 var uv = ""
 
 // Begin creating basic click events. Register the submit button
-//Make the AJAX request to the API - GETs the JSON data at the queryURL
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then((data) => {
-    console.log('query url in api request', queryURL);
-    console.log(data);
-} );
+
 
 
 // .on("click") function associated with the Search Button
 $("#run-search").on("click", function (event) {
-
+//get info for the city and trim it
     searchInfo = $("#city-search").val().trim();
     console.log(searchInfo);
+
+    //create URL 
+    var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${searchInfo}&appid=${APIKey}`
+
+    //Make the AJAX request to the API - GETs the JSON data at the queryURL
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then((data) => {
+        console.log("1")
+        console.log('query url in api request', queryURL);
+        console.log(data);
+        updatePage(data)
+    } );
+    console.log("2");
     
     // This line allows us to take advantage of the HTML "submit" property
-    runQuery(5, "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c5ddeb8a63142d853cedb5adfd31187a");
+    
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
 })
+//Get from the form the number of results to display
+function updatePage(cityInfo) {
+$("#city-name").text(cityInfo.name)
+// console.log(cityInfo);
+// $("#city-name").append();
+}
+// updatePage()
+
+
+
+
 
 // WHEN I search for a city
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
