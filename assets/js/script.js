@@ -1,4 +1,4 @@
-var queryURL = http:"api.openweathermap.org/data/2.5/forecast?id=524901&APPID={90a083dba21f51fa89fd107b2a602ddf}"
+var queryURL = "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID={90a083dba21f51fa89fd107b2a602ddf}"
 
 // Begin creating basic click events. Register the submit button
 //Make the AJAX request to the API - GETs the JSON data at the queryURL
@@ -14,7 +14,7 @@ $("#run-search").on("click", function (event) {
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
-}
+})
 
 // WHEN I search for a city
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
