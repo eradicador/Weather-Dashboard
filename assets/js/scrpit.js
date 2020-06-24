@@ -9,12 +9,12 @@ $.ajax({
 console.log(queryURL);
 
 // .on("click") function associated with the Search Button
-$("#run-search").on("click", function(event) {
+$("#run-search").on("click", function (event) {
     // This line allows us to take advantage of the HTML "submit" property
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
-
+}
 
 // WHEN I search for a city
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
