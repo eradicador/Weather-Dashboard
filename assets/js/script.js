@@ -1,16 +1,31 @@
-var queryURL = "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID={90a083dba21f51fa89fd107b2a602ddf}"
+// serach parameters
+var queryURL = "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c5ddeb8a63142d853cedb5adfd31187a"
+
+var cityInfo = ""
+var temp = ""
+var humid = ""
+var wind = ""
+var uv = ""
 
 // Begin creating basic click events. Register the submit button
 //Make the AJAX request to the API - GETs the JSON data at the queryURL
 $.ajax({
     url: queryURL,
     method: "GET"
-}).then(updatePage);
-console.log(queryURL);
+}).then((data) => {
+    console.log('query url in api request', queryURL);
+    console.log(data);
+} );
+
 
 // .on("click") function associated with the Search Button
 $("#run-search").on("click", function (event) {
+
+    searchInfo = $("#city-search").val().trim();
+    console.log(searchInfo);
+    
     // This line allows us to take advantage of the HTML "submit" property
+    runQuery(5, "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c5ddeb8a63142d853cedb5adfd31187a");
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
