@@ -2,5 +2,8 @@
     color: white;
     /* changed font size to navbar title */
     font-size: 35px;
+}
 
+.city-name{
+    font-size: 20px;
 }

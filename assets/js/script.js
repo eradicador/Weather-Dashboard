@@ -1,19 +1,15 @@
 // serach parameters
 // var queryURL = "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c5ddeb8a63142d853cedb5adfd31187a"
-var APIKey ='c5ddeb8a63142d853cedb5adfd31187a';
+var APIKey = 'c5ddeb8a63142d853cedb5adfd31187a';
 var cityInfo = ""
 var temp = ""
 var humid = ""
 var wind = ""
 var uv = ""
 
-// Begin creating basic click events. Register the submit button
-
-
-
 // .on("click") function associated with the Search Button
 $("#run-search").on("click", function (event) {
-//get info for the city and trim it
+    //get info for the city and trim it
     searchInfo = $("#city-search").val().trim();
     console.log(searchInfo);
 
@@ -29,22 +25,24 @@ $("#run-search").on("click", function (event) {
         console.log('query url in api request', queryURL);
         console.log(data);
         updatePage(data)
-    } );
+    });
     console.log("2");
-    
-    // This line allows us to take advantage of the HTML "submit" property
-    
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
 })
 //Get from the form the number of results to display
 function updatePage(cityInfo) {
-$("#city-name").text(cityInfo.name)
-// console.log(cityInfo);
-// $("#city-name").append();
+    // Key.value
+    $("#city-name").text(cityInfo.name)
+    // console.log(cityInfo);
+    $("#tempeture").text(JSON.stringify(cittInfo.main.temp)
+    //     $("#humidity").text(cityInfo.name)
+    //     $("#wind-speed").text(cityInfo.wind)
+    //     $("#uv-index").text(cityInfo.name)
+
 }
-// updatePage()
+
 
 
 
@@ -61,4 +59,3 @@ $("#city-name").text(cityInfo.name)
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
 // WHEN I open the weather dashboard
-// THEN I am presented with the last searched city forecast
