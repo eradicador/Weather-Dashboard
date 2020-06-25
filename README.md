@@ -17,8 +17,19 @@ This application is designed for a traveler
 https://github.com/eradicador/Weather-Dashboard
 
 # css
+linked navbar-brand class and changed font size and color
+linked city-name class and changed font size 20px
 
 # html
+line 8 added bootstrap link 
+
+line 11 added cdn javascript css link
+
+line 15 added a title
+added a navbar changed the background color
+added a table for `cities` four rows
+lines 98,99 added JQuery links
+line 101 linked script file
 
 # js
 
