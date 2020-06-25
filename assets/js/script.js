@@ -6,7 +6,7 @@ var button = document.getElementById("run-search");
 $("#run-search").on("click", function (event) {
     //get info for the city and trim it
     searchInfo = $("#city-search").val().trim();
-    //create URL with APIKey
+    //added URL with APIKey
     var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${searchInfo}&appid=${APIKey}`
     //Make the AJAX request to the API - GETs the JSON data at the queryURL
     $.ajax({
@@ -35,6 +35,7 @@ function updatePage(cityInfo) {
     $("#uv-index").text("UV Index: " + cityInfo.name);
     storeCities()
 }
+//get and set info to local storage
 $('.search-input').val(localStorage.getItem('#city-search'))
 function storeCities() {
     var storageStuff = localStorage.setItem('currentCity', searchInfo);

@@ -32,6 +32,19 @@ lines 98,99 added JQuery links
 line 101 linked script file
 
 # js
+lines 2,4 added search parameters
+
+line 6 added on(click) function associated with the search button
+
+line 10 added variable with api link and apikey
+
+line 12 added AJAX call with method GET for the API
+
+line 23 added a function to update the page with all the weather information from the api
+
+line 39 get and set information to local storage
+
+line 48 added and event listener to get information from local storage to the page
 
 # license
 MIT License
