@@ -6,12 +6,11 @@ var cityInfo = ""
 var humid = ""
 var wind = ""
 var uv = ""
-
+var cities = []
 // .on("click") function associated with the Search Button
 $("#run-search").on("click", function (event) {
     //get info for the city and trim it
     searchInfo = $("#city-search").val().trim();
-    console.log(searchInfo);
 
     //create URL 
     var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${searchInfo}&appid=${APIKey}`
@@ -21,18 +20,16 @@ $("#run-search").on("click", function (event) {
         url: queryURL,
         method: "GET"
     }).then((data) => {
-        console.log("1")
-        console.log('query url in api request', queryURL);
-        console.log(data);
         updatePage(data);
     });
-    console.log("2");
+
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
 })
 //Get from the form the number of results to display
 function updatePage(cityInfo) {
+
     // Key.value
     $("#city-name").text(cityInfo.name);
     // console.log(cityInfo);
@@ -41,12 +38,26 @@ function updatePage(cityInfo) {
     $("#humidity").text(parseInt(cityInfo.name.humidity));
 
     $("#wind-speed").text(cityInfo.wind.speed);
-    //     $("#uv-index").text(cityInfo.name)
+
+    $("#uv-index").text(cityInfo.name)
+
 }
 // weather data, 3 api calls each function its own ajax call and jquery ,weather data for city, 5 day forecast, last api call the uv index append text add event listener elements to the page.
+$('.search-input').val(localStorage.getItem('#run-search'))
+function storeCities(){
+    localStorage.setItem("cities", JSON.stringify(cities)); 
+}
 
+// function fiveForecast(cityInfo) {
+//     var fiveDay = `http://api.openweathermap.org/data/2.5/forecast?q=${cityInfo}&appid=${APIKey}`
+//     $.ajax({
+//         url: fiveDay,
+//         method: "GET"
+//     })
+//     event.preventDefault();
 
-
+//     $("#fiveForecast").text(cityInfo)
+// }
 
 
 // WHEN I search for a city
