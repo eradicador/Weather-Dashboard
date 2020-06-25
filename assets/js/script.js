@@ -2,7 +2,7 @@
 // var queryURL = "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c5ddeb8a63142d853cedb5adfd31187a"
 var APIKey = 'c5ddeb8a63142d853cedb5adfd31187a';
 var cityInfo = ""
-var temp = ""
+// var temp = document.querySelector("#temperature")
 var humid = ""
 var wind = ""
 var uv = ""
@@ -24,7 +24,7 @@ $("#run-search").on("click", function (event) {
         console.log("1")
         console.log('query url in api request', queryURL);
         console.log(data);
-        updatePage(data)
+        updatePage(data);
     });
     console.log("2");
     // This way we can hit enter on the keyboard and it registers the search
@@ -34,15 +34,16 @@ $("#run-search").on("click", function (event) {
 //Get from the form the number of results to display
 function updatePage(cityInfo) {
     // Key.value
-    $("#city-name").text(cityInfo.name)
+    $("#city-name").text(cityInfo.name);
     // console.log(cityInfo);
-    $("#tempeture").text(JSON.stringify(cittInfo.main.temp)
-    //     $("#humidity").text(cityInfo.name)
-    //     $("#wind-speed").text(cityInfo.wind)
+    $("#temperature").text(parseInt((cityInfo.main.temp - 273.15) * 1.8 + 32));
+
+    $("#humidity").text(parseInt(cityInfo.name.humidity));
+
+    $("#wind-speed").text(cityInfo.wind.speed);
     //     $("#uv-index").text(cityInfo.name)
-
 }
-
+// weather data, 3 api calls each function its own ajax call and jquery ,weather data for city, 5 day forecast, last api call the uv index append text add event listener elements to the page.
 
 
 
