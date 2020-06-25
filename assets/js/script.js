@@ -7,6 +7,7 @@ var humid = ""
 var wind = ""
 var uv = ""
 var cities = []
+
 // .on("click") function associated with the Search Button
 $("#run-search").on("click", function (event) {
     //get info for the city and trim it
@@ -23,7 +24,7 @@ $("#run-search").on("click", function (event) {
         updatePage(data);
     });
 
-
+    
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
@@ -31,24 +32,33 @@ $("#run-search").on("click", function (event) {
 //Get from the form the number of results to display
 function updatePage(cityInfo) {
     console.log(cityInfo);
-
+    $('#date').text(moment().format('M/Do/YYYY'));
     // Key.value
     $("#city-name").text(cityInfo.name);
     // console.log(cityInfo);
     $("#temperature").text("Temperature: " + parseInt((cityInfo.main.temp - 273.15) * 1.8 + 32));
 
-    $("#humidity").text("Humidity: " + parseInt((cityInfo.name.humidity)));
+    $("#humidity").text("Humidity: " + parseInt((cityInfo.main.humidity)));
 
     $("#wind-speed").text("Wind Speed: " + cityInfo.wind.speed);
 
     $("#uv-index").text("UV Index: " + cityInfo.name);
-
+    storeCities()
 }
 // weather data, 3 api calls each function its own ajax call and jquery ,weather data for city, 5 day forecast, last api call the uv index append text add event listener elements to the page.
-// $('.search-input').val(localStorage.getItem('#run-search'))
-// function storeCities(){
-//     localStorage.setItem("cities", JSON.stringify(cities)); 
-// }
+$('.search-input').val(localStorage.getItem('#city-search'))
+function storeCities(){
+    var storageStuff = localStorage.setItem('currentCity', searchInfo);
+    clearInterval()
+    // localStorage.setItem("currentCity", searchInfo); 
+    console.log(localStorage); 
+}
+localStorage.getItem('currentCity')
+
+
+// if statements or loop, clear 
+
+
 
 // function fiveForecast(cityInfo) {
 //     var fiveDay = `http://api.openweathermap.org/data/2.5/forecast?q=${cityInfo}&appid=${APIKey}`
