@@ -7,7 +7,7 @@ also the website will show a 5-day forecast that displays the date, an icon repr
 also if the user clicks on any city from the search history he/she will be presented with current and future conditions for that city.
 
 # screenshot
-<img src ="/assets/images/202-06-24.png" width="500">
+<img src ="/assets/images/2020-06-24.png" width="500">
 
 # link to deployed app
 https://github.com/eradicador/Weather-Dashboard
@@ -43,6 +43,7 @@ line 39 get and set information to local storage
 line 48 added and event listener to get information from local storage to the page
 
 # license
+
 MIT License
 
 Copyright (c) [2020] [Michael Amaya]
