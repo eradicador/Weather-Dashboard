@@ -1,17 +1,13 @@
 // serach parameters
-// var queryURL = "http:api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c5ddeb8a63142d853cedb5adfd31187a"
 var APIKey = 'c5ddeb8a63142d853cedb5adfd31187a';
 var cityInfo = "";
 var button = document.getElementById("run-search");
-
 // .on("click") function associated with the Search Button
 $("#run-search").on("click", function (event) {
     //get info for the city and trim it
     searchInfo = $("#city-search").val().trim();
-
-    //create URL 
+    //create URL with APIKey
     var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${searchInfo}&appid=${APIKey}`
-
     //Make the AJAX request to the API - GETs the JSON data at the queryURL
     $.ajax({
         url: queryURL,
@@ -19,8 +15,6 @@ $("#run-search").on("click", function (event) {
     }).then((data) => {
         updatePage(data);
     });
-
-
     // This way we can hit enter on the keyboard and it registers the search
     // (in addition to clicks). Prevents the page from reloading on form submit.
     event.preventDefault();
@@ -41,7 +35,6 @@ function updatePage(cityInfo) {
     $("#uv-index").text("UV Index: " + cityInfo.name);
     storeCities()
 }
-// weather data, 3 api calls each function its own ajax call and jquery ,weather data for city, 5 day forecast, last api call the uv index append text add event listener elements to the page.
 $('.search-input').val(localStorage.getItem('#city-search'))
 function storeCities() {
     var storageStuff = localStorage.setItem('currentCity', searchInfo);
@@ -58,10 +51,8 @@ button.addEventListener("click", function () {
     howYouFeelSaved.textContent = localStorage.getItem('currentCity');
 })
 
-
+// weather data, 3 api calls each function its own ajax call and jquery ,weather data for city, 5 day forecast, last api call the uv index append text add event listener elements to the page.
 // if statements or loop, clear 
-
-
 
 // function fiveForecast(cityInfo) {
 //     var fiveDay = `http://api.openweathermap.org/data/2.5/forecast?q=${cityInfo}&appid=${APIKey}`
@@ -70,8 +61,5 @@ button.addEventListener("click", function () {
 //         method: "GET"
 //     })
 //     event.preventDefault();
-
 //     $("#fiveForecast").text(cityInfo)
 // }
-
-

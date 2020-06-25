@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- added bootstrap linked -->
+    <!-- added bootstrap link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- added cdn javascript css added Font Awesome icons for the search icon to show up-->
@@ -24,12 +24,14 @@
     <div class="cont">
         <div class="row">
             <div class="col-4">
-                <!-- margin top and bottom to 1 -->
+                <!-- margin top and bottom to 1 and bold to text-->
                 <h5 class="search-input my-1 font-weight-bold">Search for a city:</h5>
+                <!-- added margin bottom -->
                 <div class="input-group mb-3">
                     <input id="city-search" type="text" class="form-control">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button" id="run-search">
+                            <!-- added search icon -->
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -58,33 +60,27 @@
                         <div class="row">
                             <div class="col-12 mb-3">
                                 <span id="city-name" class="city-name font-weight-bold align-middle"></span>
-                                <span id= "date" class="city-name font-weight-bold align-middle"></span>☁️
+                                <span id="date" class="city-name font-weight-bold align-middle"></span>☁️
                                 <img id="current-pic" src="" alt="">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-
-
                                 <p id="temperature"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-
-
                                 <p id="humidity"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-
                                 <p id="wind-speed"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 d-flex">
-
                                 <p id="UV-index"></p>
                             </div>
                         </div>
